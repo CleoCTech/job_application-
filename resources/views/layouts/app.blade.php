@@ -1,82 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    {{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
+    </head>
 
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div> --}}
     <body>
         <div id="app">
             @include('inc.navbar')
@@ -85,6 +32,96 @@
             </main>
         </div>
         @include('inc.footer')
+
+        <script src="js/app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        {{-- <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/common_scripts.min.js"></script>
+        <script src="js/velocity.min.js"></script>
+        <script src="js/common_functions.js"></script>
+        <script src="js/file-validator.js"></script> --}}
+        <script>
+            var visibleDiV =0;
+            function showDiv() {
+                $(".mybox").hide();
+                $(".mybox:eq("+ visibleDiV +")").show();
+            }
+
+            function showNext() {
+                if (visibleDiV == $(".mybox").length-1) {
+                    visibleDiV =0;
+                    enablePrevBtn(visibleDiV);
+                    chageToSubmit(visibleDiV);
+                }else{
+                    visibleDiV ++;
+                    enablePrevBtn(visibleDiV);
+                    chageToSubmit(visibleDiV);
+                    //document.getElementById("bk").disabled = false;
+                    console.log(visibleDiV);
+
+                }
+                showDiv();
+            }
+            function showPrev() {
+                if (visibleDiV == 0) {
+                    enablePrevBtn(visibleDiV);
+                    chageToSubmit(visibleDiV);
+                   // document.getElementById("bk").disabled = true;
+                    visibleDiV =$(".mybox").length-1;
+                }else{
+                    visibleDiV --;
+
+                    console.log(visibleDiV);
+                }
+                showDiv();
+            }
+
+            function enablePrevBtn(counter) {
+                if (counter < 1 || counter == 0) {
+                    document.getElementById("bk").disabled = true;
+                } else {
+                    document.getElementById("bk").disabled = false;
+                }
+            }
+            function chageToSubmit(counter) {
+                if ( counter == 6) {
+                    document.getElementById("nt").disabled = true;
+                    document.getElementById("st").disabled = false;
+                }
+            }
+            function addOthers(){
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+            function addWorkExperience(){
+                var x = document.getElementById("myDIV2");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+            function addOtherAreas(){
+                var x = document.getElementById("myDIV3");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+            function addReferees(){
+                var x = document.getElementById("myDIV4");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
     </body>
-</body>
+
 </html>

@@ -1,5 +1,6 @@
-<footer class="footer mt-auto py-3 text-center bg-dark">
+<footer class="footer mt-auto py-3 text-center" style="background-color: #0781b6 !important;">
     <div class="container">
-      <span class="text-muted">Made with <span style="color: rgb(255,96,96)">❤</span> by <a href="#" target="_blank"> Max The Stranger</a>
+      <span class="text-white">Made with <span style="color:#F8BD2C">❤</span> by <a href="https://cleoportfolio.000webhostapp.com/" target="_blank"> CleoCTech@Nariphon Technologies LTD.</a>
     </div>
+    {{--  color:rgb(255,96,96)  --}}
 </footer>

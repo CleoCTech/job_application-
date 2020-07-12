@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-md navbar-light bg-dark  shadow-sm">
+<nav style="background-color: #0781b6 !important;" class="navbar py-4 sticky-top navbar-expand-md shadow-sm">
     <div class="container">
         <a class="navbar-brand text-bold text-white" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -18,13 +18,13 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                <li class="nav-item ">
+                {{--  <li class="nav-item ">
                     <a class="nav-link text-bold text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
+                </li>  --}}
                 @if (Route::has('register'))
-                <li class="nav-item">
+                {{--  <li class="nav-item">
                     <a class="nav-link text-bold text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
+                </li>  --}}
                 @endif
                 @else
                 <li class="nav-item dropdown">
@@ -49,3 +49,9 @@
         </div>
     </div>
 </nav>
+
+<style scoped>
+    .navbar {
+
+    }
+</style>
