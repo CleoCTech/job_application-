@@ -36,20 +36,26 @@ class HomeController extends Controller
             DB::table('applications')->insert(
                 ['created_at' => DB::raw('now()'), 'updated_at' =>DB::raw('now()'), 'status' =>'Complete', ]
             );
+
+        //    // $lastRow =$last_row->application_id +1;
+            DB::table('applications')->insert(
+                ['created_at' => DB::raw('now()'), 'updated_at' =>DB::raw('now()'), 'status'   =>'Incomplete', ]
+            );
             $last_row = DB::table('applications')->latest()->first();
             //return response()->json(array('success' => true, 'last_insert_id' => $last_row->application_id), 200);
             return view('home')->with('last_row', $last_row);
        }else{
+        DB::table('applications')->insert(
+            ['created_at' => DB::raw('now()'), 'updated_at' =>DB::raw('now()'), 'status'   =>'Incomplete', ]
+        );
+        $last_row = DB::table('applications')->latest()->first();
+       // $lastRow =$last_row->application_id +1;
         //return response()->json(array('success' => true, 'last_insert_id' => $last_row->application_id), 200);
         return view('home')->with('last_row', $last_row);
        }
 
       // return view('home')->with('last_row', $last_row);
     }
-
-    // public function education(){
-    //     return view("inc.innerforms.education-bg");
-    // }
 
 
 }
