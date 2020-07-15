@@ -41,86 +41,43 @@
         <script src="js/common_functions.js"></script>
         <script src="js/file-validator.js"></script> --}}
         <script>
-            var visibleDiV =0;
-            function showDiv() {
-                $(".mybox").hide();
-                $(".mybox:eq("+ visibleDiV +")").show();
-            }
+            // $(document).ready(function() {
+            //     $("#gradeFormControlSelect1").change(function() {
+            //        // alert("Hclhahjd");
+            //         highschool_grade = $(this).children("option:selected").val();
+            //         //alert("You have selected the country - " + selectedCountry);
+            //     });
+            // });
+            // $(document).ready(function() {
+            //     if (document.getElementById('r1').checked) {
+            //        var gender = document.getElementById('r1').value;
 
-            function showNext() {
-                if (visibleDiV == $(".mybox").length-1) {
-                    visibleDiV =0;
-                    enablePrevBtn(visibleDiV);
-                    chageToSubmit(visibleDiV);
-                }else{
-                    visibleDiV ++;
-                    enablePrevBtn(visibleDiV);
-                    chageToSubmit(visibleDiV);
-                    //document.getElementById("bk").disabled = false;
-                    console.log(visibleDiV);
+            //     } else if (document.getElementById('r2').checked) {
+            //       var  gender = document.getElementById('r2').value;
+            //     }
+            // });
+            // //var college_grade ;
+            // $(document).ready(function() {
+            //     $("#college_gFormControlSelect1").change(function() {
+            //         //alert("clhahjd");
+            //         college_grade = $(this).children("option:selected").val();
+            //         //alert("You have selected the country - " + selectedCountry);
+            //     });
+            // });
 
-                }
-                showDiv();
-            }
-            function showPrev() {
-                if (visibleDiV == 0) {
-                    enablePrevBtn(visibleDiV);
-                    chageToSubmit(visibleDiV);
-                   // document.getElementById("bk").disabled = true;
-                    visibleDiV =$(".mybox").length-1;
-                }else{
-                    visibleDiV --;
-
-                    console.log(visibleDiV);
-                }
-                showDiv();
-            }
-
-            function enablePrevBtn(counter) {
-                if (counter < 1 || counter == 0) {
-                    document.getElementById("bk").disabled = true;
-                } else {
-                    document.getElementById("bk").disabled = false;
-                }
-            }
-            function chageToSubmit(counter) {
-                if ( counter == 6) {
-                    document.getElementById("nt").disabled = true;
-                    document.getElementById("st").disabled = false;
-                }
-            }
-            function addOthers(){
-                var x = document.getElementById("myDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-            function addWorkExperience(){
-                var x = document.getElementById("myDIV2");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-            function addOtherAreas(){
-                var x = document.getElementById("myDIV3");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-            function addReferees(){
-                var x = document.getElementById("myDIV4");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
+            // $(document).ready(function() {
+            //     $("#gradeFormControlSelect2").change(function() {
+            //         highschool_grade1 = $(this).children("option:selected").val();
+            //         //alert("You have selected the country - " + selectedCountry);
+            //     });
+            // });
+            // //var college_grade ;
+            // $(document).ready(function() {
+            //     $("#college_gFormControlSelect2").change(function() {
+            //         college_grade = $(this).children("option:selected").val();
+            //         //alert("You have selected the country - " + selectedCountry);
+            //     });
+            // });
         </script>
     </body>
 
