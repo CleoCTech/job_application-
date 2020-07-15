@@ -34,7 +34,7 @@ class HomeController extends Controller
        // $lastid= Application::where('status', '==', 'Complete')->get();
        if ($last_row === null) {
             DB::table('applications')->insert(
-                ['created_at' => DB::raw('now()'), 'updated_at' =>DB::raw('now()'), 'status' =>'Incomplete', ]
+                ['created_at' => DB::raw('now()'), 'updated_at' =>DB::raw('now()'), 'status' =>'Complete', ]
             );
             $last_row = DB::table('applications')->latest()->first();
             //return response()->json(array('success' => true, 'last_insert_id' => $last_row->application_id), 200);
